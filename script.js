@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const pageLimit = 20;
 	let currentPage = 1;
 
-	// Función para renderizar producto individual
+	// Función para renderizar productos
 	const productsContainer = document.getElementById("products");
 	function renderProducts(productList) {
 		productsContainer.innerHTML = '';
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		})
 	}
 
-	// Paginación
+	// Paginación 
 	function renderPagination(productsTotal) {
 		const containerPaginacion = document.getElementById("pagination");
 		containerPaginacion.innerHTML = '';
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	// Fetch de productos
+	// Fetch de productos =======================================================================
 	const getProducts = async (page) => {
 		try {
 			// Errores y spinner de carga
@@ -95,12 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	
 	getProducts(1); // Productos página 1
 
-	// Login
-
+	// Login =======================================================================
 	// Checkear si usuario está loggeado
-	let isAuth = localStorage.getItem("isAuth") === "true";
-	console.log(localStorage.getItem("isAuth"));
-	console.log(isAuth);
+	let isAuth = localStorage.getItem("isAuth") === "true"; // te odio javascript
 	let openCheckoutOnLogin = false;
 
 	const usernameContainer = document.getElementById("navbar-username");
@@ -118,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		loginBtn.style.display = "block";
 	}
 
-	// Formulario modal
+	// Formulario login
 	const loginForm = document.getElementById("login-form");
 	const loginModal = document.getElementById("loginModal");
 	const userInput = loginForm.querySelector("#login-name");
@@ -186,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}).showToast();
 	});
 
-	// Botón para realizar pedido
+	// Realizar pedido =======================================================================
 	const purchaseBtn = document.getElementById("cartPurchaseBtn");
 	purchaseBtn.addEventListener("click", () => {
 		if (isAuth) {
@@ -252,7 +249,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const cartBuyContainer = document.getElementById("cartBuy");
 	const cartEmptyContainer = document.getElementById("cartEmpty");
 	const cartBuyTotal = cartBuyContainer.querySelector("#cartTotal");
-	
 
 	function calcTotal() {
 		if (cart.length == 0) {
