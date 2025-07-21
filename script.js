@@ -109,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	if (isAuth == true) {
-		console.log("trueeee")
 		login(localStorage.getItem("username"));
 	} else {
 		loginBtn.style.display = "block";
@@ -134,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	loginForm.addEventListener("submit", (e) => {
 		e.preventDefault();
 		if (checkRemember.checked) {
-			console.log("hola");
 			localStorage.setItem("username", userInput.value);
 			localStorage.setItem("isAuth", true);
 		}
@@ -164,7 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Cerrar sesión
 	logoutBtn.addEventListener("click", () => {
-		console.log("holaaaa");
 		localStorage.setItem("isAuth", false);
 		localStorage.removeItem("username");
 		isAuth = false;
